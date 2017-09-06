@@ -1,5 +1,5 @@
-name: MongoDB
+name: SSP Production
 description: |
-  MongoDB Replica Set.
+  SSP cluster for production environment.
 version: 3.2-rancher1
-category: Databases
+category: Enterprise Portal
