@@ -6,8 +6,8 @@
   minimum_rancher_version: v0.46.0
   questions:
     - variable: replset_name
-      description: "Name of the MongoDB replicaSet"
-      label: "ReplicaSet Name"
+      description: "Why did chicken cross the road?"
+      label: "Chicken Cross Road?"
       type: "string"
       required: true
       default: "rs0"
