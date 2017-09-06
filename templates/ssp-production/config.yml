@@ -1,0 +1,8 @@
+name: SSP Production Cluster
+description: |
+  This stack allows one to deploy SKIDATA Sales Platform Production environment.
+version: 1.0-sspprod
+category: Enterprise Portal
+maintainer: Nithin Betegeri (benn)
+license: SKIDATA A.G
+projectURL: http://git.swblr.skidata.net/ssp/ssp-hq-sandbox.git
