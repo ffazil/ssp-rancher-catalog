@@ -1,0 +1,5 @@
+name: SSP Development
+description: |
+  SSP cluster for development environment.
+version: 3.2-rancher1
+category: Enterprise Portal

@@ -1,0 +1,43 @@
+.catalog:
+  name: "Sales Platform Development"
+  version: "3.0.0-rancher1"
+  description: "Platform Development Cluster"
+  uuid: sspprod-0
+  minimum_rancher_version: v0.46.0
+  questions:
+    - variable: replset_name
+      description: "Name of the MongoDB replicaSet"
+      label: "ReplicaSet Name"
+      type: "string"
+      required: true
+      default: "rs0"
+ssp-haproxy:
+  scale: 1
+ssp-postgres:
+  scale: 1
+ssp-rabbitmq:
+  scale: 1
+ssp-discovery:
+  scale: 1
+ssp-vault:
+  scale: 1
+ssp-notification:
+  scale: 1
+ssp-partner:
+  scale: 1
+ssp-auth:
+  scale: 1
+ssp-pim:
+  scale: 1
+ssp-order:
+  scale: 1
+ssp-payment:
+  scale: 1
+ssp-dta-adapter:
+  scale: 1
+ssp-portal:
+  scale: 1
+ssp-business-portal:
+  scale: 1
+ssp-vsm-admin:
+  scale: 1
