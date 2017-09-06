@@ -10,7 +10,7 @@
       label: "Chicken Cross Road?"
       type: "string"
       required: true
-      default: "rs0"
+      default: "To meet the Butcher"
 ssp-haproxy:
   scale: 1
 ssp-postgres:
