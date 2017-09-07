@@ -1,8 +1,8 @@
 .catalog:
   name: "Sales Platform Production"
-  version: "SSPPROD-TEMPLATE-1.0"
+  version: "SSPPROD-TEMPLATE-2.0"
   description: "Platform Production Cluster"
-  uuid: sspprod-template-1
+  uuid: sspprod-template-2
   minimum_rancher_version: v0.46.0
   questions:
 
