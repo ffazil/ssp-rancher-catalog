@@ -46,7 +46,5 @@ ssp-dta-adapter:
   scale: 1
 ssp-portal:
   scale: 1
-ssp-business-portal:
-  scale: 1
 ssp-vsm-admin:
   scale: 1
