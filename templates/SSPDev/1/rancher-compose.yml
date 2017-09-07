@@ -48,3 +48,5 @@ ssp-portal:
   scale: 1
 ssp-vsm-admin:
   scale: 1
+ssp-gateway:
+  scale: 1
