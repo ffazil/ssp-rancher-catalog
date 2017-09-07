@@ -1,8 +1,8 @@
 .catalog:
   name: "Sales Platform Development"
-  version: "SSPDEV-TEMPLATE-1.0"
+  version: "SSPDEV-TEMPLATE-2.0"
   description: "Platform Development Cluster"
-  uuid: sspdev-template-1
+  uuid: sspdev-template-2
   minimum_rancher_version: v0.46.0
   questions:
 
@@ -19,7 +19,7 @@
       type: "string"
       required: true
       default: "172.27.80.134"
-
+      
 ssp-haproxy:
   scale: 1
 ssp-postgres:

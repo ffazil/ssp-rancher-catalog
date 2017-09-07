@@ -1,5 +1,5 @@
-name: SSP Development
+name: SSP - Development
 description: |
-  SSP cluster for development environment.
-version: 3.2-rancher1
+  Microservices cluster for SSP development environment.
+version: sspdev-0.1
 category: Enterprise Portal
