@@ -22,7 +22,7 @@
       
 ssp-haproxy:
   scale: 1
-ssp-postgres:
+ssp-postgresql:
   scale: 1
 ssp-rabbitmq:
   scale: 1
