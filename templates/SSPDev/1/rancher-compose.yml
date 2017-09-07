@@ -11,14 +11,14 @@
       label: "Host Name"
       type: "string"
       required: true
-      default: "ssp.skidata.com"
+      default: "elk001.swblr.skidata.net"
 
     - variable: DOCKER_IP
       description: "IP Address of the deployed machine"
       label: "IP Address"
       type: "string"
       required: true
-      default: "172.27.80.134"
+      default: "172.27.80.27"
       
 ssp-haproxy:
   scale: 1
