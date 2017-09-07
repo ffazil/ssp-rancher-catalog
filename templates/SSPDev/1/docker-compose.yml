@@ -1,4 +1,4 @@
-version: "2.1"
+version: "2"
 # Service for SSP
 services:
     # Postgresql container
@@ -13,22 +13,12 @@ services:
             POSTGRES_PASSWORD: postgres
             PGPASSWORD: postgres
         restart: always
-        healthcheck:
-            test: ["CMD-SHELL", "pg_isready"]
-            interval: 30s
-            timeout: 30s
-            retries: 3
     # RabbitMQ container
     ssp-rabbitmq:
         image: swblr.skidata.net/ssp-rabbitmq:0.2
         ports:
             - 15672:15672
             - 5672:5672
-        healthcheck:
-            test: ["CMD", "curl", "-f", "http://localhost:15672"]
-            interval: 30s
-            timeout: 10s
-            retries: 5
         environment:
             RABBITMQ_PASS: admin
     # Discovery container
@@ -37,11 +27,6 @@ services:
         mem_limit: 1024m
         ports:
             - 8761:8761
-        healthcheck:
-            test: ["CMD", "curl", "-f", "http://localhost:8761"]
-            interval: 30s
-            timeout: 10s
-            retries: 5
         environment:
             SPRING_PROFILES_ACTIVE: docker
             JAVA_OPTS: "-Xmx512m -Xss256k"
@@ -51,18 +36,6 @@ services:
         mem_limit: 1024m
         ports:
             - 9999:9999
-        healthcheck:
-            test: ["CMD", "curl", "-f", "http://localhost:9999/auth"]
-            interval: 30s
-            timeout: 10s
-            retries: 5
-        depends_on:
-            ssp-postgresql:
-                condition: service_healthy
-            ssp-rabbitmq:
-                condition: service_healthy
-            ssp-discovery:
-              condition: service_healthy
         links:
             - ssp-postgresql:ssp-postgresql
             - ssp-rabbitmq:ssp-rabbitmq
@@ -77,18 +50,6 @@ services:
         mem_limit: 1024m
         ports:
             - 31020:31020
-        healthcheck:
-            test: ["CMD", "curl", "-f", "http://localhost:31020/info"]
-            interval: 30s
-            timeout: 10s
-            retries: 5
-        depends_on:
-            ssp-postgresql:
-                condition: service_healthy
-            ssp-rabbitmq:
-                condition: service_healthy
-            ssp-discovery:
-                condition: service_healthy
         links:
             - ssp-auth:ssp-auth
             - ssp-rabbitmq:ssp-rabbitmq
@@ -102,14 +63,6 @@ services:
         mem_limit: 1024m
         ports:
             - 8080:8080
-        healthcheck:
-            test: ["CMD", "curl", "-f", "http://localhost:8080/info"]
-            interval: 30s
-            timeout: 10s
-            retries: 5
-        depends_on:
-            ssp-discovery:
-                condition: service_healthy
         links:
             - ssp-discovery:ssp-discovery
             - ssp-auth:ssp-auth
@@ -126,14 +79,6 @@ services:
         mem_limit: 1024m
         ports:
             - 10000:10000
-        healthcheck:
-            test: ["CMD", "curl", "-f", "http://localhost:10000/portal"]
-            interval: 30s
-            timeout: 10s
-            retries: 5
-        depends_on:
-            ssp-discovery:
-                condition: service_healthy
         links:
             - ssp-discovery:ssp-discovery
             - ssp-gateway:ssp-gateway
@@ -150,18 +95,6 @@ services:
         mem_limit: 1024m
         ports:
             - 31010:31010
-        healthcheck:
-            test: ["CMD", "curl", "-f", "http://localhost:31010/info"]
-            interval: 30s
-            timeout: 10s
-            retries: 5
-        depends_on:
-            ssp-postgresql:
-                condition: service_healthy
-            ssp-rabbitmq:
-                condition: service_healthy
-            ssp-discovery:
-              condition: service_healthy
         links:
             - ssp-discovery:ssp-discovery
             - ssp-rabbitmq:ssp-rabbitmq
@@ -175,18 +108,6 @@ services:
         mem_limit: 1024m
         ports:
             - 30020:30020
-        healthcheck:
-            test: ["CMD", "curl", "-f", "http://localhost:30020/info"]
-            interval: 30s
-            timeout: 10s
-            retries: 5
-        depends_on:
-            ssp-postgresql:
-                condition: service_healthy
-            ssp-rabbitmq:
-                condition: service_healthy
-            ssp-discovery:
-                condition: service_healthy
         links:
             - ssp-discovery:ssp-discovery
             - ssp-rabbitmq:ssp-rabbitmq
@@ -200,18 +121,6 @@ services:
         mem_limit: 1024m
         ports:
             - 30010:30010
-        healthcheck:
-            test: ["CMD", "curl", "-f", "http://localhost:30010/info"]
-            interval: 30s
-            timeout: 10s
-            retries: 5
-        depends_on:
-            ssp-postgresql:
-                condition: service_healthy
-            ssp-rabbitmq:
-                condition: service_healthy
-            ssp-discovery:
-              condition: service_healthy
         links:
             - ssp-discovery:ssp-discovery
             - ssp-rabbitmq:ssp-rabbitmq
@@ -226,18 +135,6 @@ services:
         mem_limit: 1024m
         ports:
             - 40010:40010
-        healthcheck:
-            test: ["CMD", "curl", "-f", "http://localhost:40010/info"]
-            interval: 30s
-            timeout: 10s
-            retries: 5
-        depends_on:
-            ssp-postgresql:
-                condition: service_healthy
-            ssp-rabbitmq:
-                condition: service_healthy
-            ssp-discovery:
-                condition: service_healthy
         links:
             - ssp-discovery:ssp-discovery
             - ssp-rabbitmq:ssp-rabbitmq
@@ -251,14 +148,6 @@ services:
         mem_limit: 1024m
         ports:
             - 20000:20000
-        healthcheck:
-            test: ["CMD", "curl", "-f", "http://localhost:20000/ssp-vsm-admin"]
-            interval: 30s
-            timeout: 10s
-            retries: 5
-        depends_on:
-            ssp-discovery:
-                condition: service_healthy
         links:
             - ssp-discovery:ssp-discovery
             - ssp-gateway:ssp-gateway
@@ -275,18 +164,6 @@ services:
         mem_limit: 1024m
         ports:
             - 32010:32010
-        healthcheck:
-            test: ["CMD", "curl", "-f", "http://localhost:32010/info"]
-            interval: 30s
-            timeout: 10s
-            retries: 5
-        depends_on:
-            ssp-postgresql:
-                condition: service_healthy
-            ssp-rabbitmq:
-                condition: service_healthy
-            ssp-discovery:
-                condition: service_healthy
         links:
             - ssp-discovery:ssp-discovery
             - ssp-gateway:ssp-gateway
@@ -302,18 +179,6 @@ services:
         mem_limit: 1024m
         ports:
             - 32020:32020
-        healthcheck:
-            test: ["CMD", "curl", "-f", "http://localhost:32020/info"]
-            interval: 30s
-            timeout: 10s
-            retries: 5
-        depends_on:
-            ssp-postgresql:
-                condition: service_healthy
-            ssp-rabbitmq:
-                condition: service_healthy
-            ssp-discovery:
-                  condition: service_healthy
         links:
             - ssp-discovery:ssp-discovery
             - ssp-gateway:ssp-gateway
