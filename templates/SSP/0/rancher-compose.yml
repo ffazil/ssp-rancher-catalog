@@ -1,0 +1,59 @@
+.catalog:
+  name: "SKIDATA Sales Platform"
+  version: "SSP-TEMPLATE-1.0"
+  description: "SKIDATA Sales Platform Cluster"
+  uuid: ssp-template-1
+  minimum_rancher_version: v0.46.0
+  questions:
+
+    - variable: HA_PROXY_PORT
+      description: "Externally mapped port for HA Proxy"
+      label: "HA Proxy Port Number"
+      type: "string"
+      required: true
+      default: "80"
+
+    - variable: SSP_HOSTNAME
+      description: "To be removed - Hostname for the machine from DNS"
+      label: "Host Name"
+      type: "string"
+      required: true
+      default: "ssp.skidata.com"
+
+    - variable: DOCKER_IP
+      description: "To be removed - IP Address of the deployed machine"
+      label: "IP Address"
+      type: "string"
+      required: true
+      default: "172.27.80.134"
+
+ssp-haproxy:
+  scale: 1
+ssp-postgres:
+  scale: 1
+ssp-rabbitmq:
+  scale: 1
+ssp-discovery:
+  scale: 1
+ssp-vault:
+  scale: 1
+ssp-notification:
+  scale: 1
+ssp-partner:
+  scale: 1
+ssp-auth:
+  scale: 1
+ssp-pim:
+  scale: 1
+ssp-order:
+  scale: 1
+ssp-payment:
+  scale: 1
+ssp-dta-adapter:
+  scale: 1
+ssp-portal:
+  scale: 1
+ssp-business-portal:
+  scale: 1
+ssp-vsm-admin:
+  scale: 1
