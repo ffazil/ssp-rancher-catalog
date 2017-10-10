@@ -62,7 +62,7 @@ services:
         image: docker.skidata.net/ssp-gateway
         mem_limit: 1024m
         ports:
-            - 8080:8080
+            - 40000:40000
         links:
             - ssp-discovery:ssp-discovery
             - ssp-auth:ssp-auth
