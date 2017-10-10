@@ -3,7 +3,7 @@ version: "2"
 services:
     # Postgresql container
     ssp-postgresql:
-        image: swblr.skidata.net/ssp-postgresql:0.2
+        image: docker.skidata.net/ssp-postgresql:0.2
         ports:
             - 5432:5432
         volumes:
@@ -15,7 +15,7 @@ services:
         restart: always
     # RabbitMQ container
     ssp-rabbitmq:
-        image: swblr.skidata.net/ssp-rabbitmq:0.2
+        image: docker.skidata.net/ssp-rabbitmq:0.2
         ports:
             - 15672:15672
             - 5672:5672
@@ -23,7 +23,7 @@ services:
             RABBITMQ_PASS: admin
     # Discovery container
     ssp-discovery:
-        image: swblr.skidata.net/ssp-discovery
+        image: docker.skidata.net/ssp-discovery
         mem_limit: 1024m
         ports:
             - 8761:8761
@@ -32,7 +32,7 @@ services:
             JAVA_OPTS: "-Xmx512m -Xss256k"
     # Auth container
     ssp-auth:
-        image: swblr.skidata.net/ssp-auth
+        image: docker.skidata.net/ssp-auth
         mem_limit: 1024m
         ports:
             - 9999:9999
@@ -46,7 +46,7 @@ services:
             VIRTUAL_HOST: "*/auth, */auth/*"
     # Product container
     ssp-pim:
-        image: swblr.skidata.net/ssp-pim
+        image: docker.skidata.net/ssp-pim
         mem_limit: 1024m
         ports:
             - 31020:31020
@@ -59,7 +59,7 @@ services:
             JAVA_OPTS: "-Xmx512m -Xss256k"
     # Gateway container
     ssp-gateway:
-        image: swblr.skidata.net/ssp-gateway
+        image: docker.skidata.net/ssp-gateway
         mem_limit: 1024m
         ports:
             - 8080:8080
@@ -75,7 +75,7 @@ services:
             VIRTUAL_HOST: "*/*"
     # Portal container
     ssp-portal:
-        image: swblr.skidata.net/ssp-portal
+        image: docker.skidata.net/ssp-portal
         mem_limit: 1024m
         ports:
             - 10000:10000
@@ -91,7 +91,7 @@ services:
             VIRTUAL_HOST: "*/portal, */portal/*"
     #Partner container
     ssp-partner:
-        image: swblr.skidata.net/ssp-partner
+        image: docker.skidata.net/ssp-partner
         mem_limit: 1024m
         ports:
             - 31010:31010
@@ -104,7 +104,7 @@ services:
             JAVA_OPTS: "-Xmx512m -Xss256k"
     #Notification container
     ssp-notification:
-        image: swblr.skidata.net/ssp-notification
+        image: docker.skidata.net/ssp-notification
         mem_limit: 1024m
         ports:
             - 30020:30020
@@ -117,7 +117,7 @@ services:
             JAVA_OPTS: "-Xmx512m -Xss256k"
     #Vault-Container
     ssp-vault:
-        image: swblr.skidata.net/ssp-vault
+        image: docker.skidata.net/ssp-vault
         mem_limit: 1024m
         ports:
             - 30010:30010
@@ -131,7 +131,7 @@ services:
             JAVA_OPTS: "-Xmx512m -Xss256k"
     #Dta-Adapter
     ssp-dta-adapter:
-        image: swblr.skidata.net/ssp-dta-adapter
+        image: docker.skidata.net/ssp-dta-adapter
         mem_limit: 1024m
         ports:
             - 40010:40010
@@ -144,7 +144,7 @@ services:
             JAVA_OPTS: "-Xmx512m -Xss256k"
     #Admin Portal container
     ssp-vsm-admin:
-        image: swblr.skidata.net/ssp-vsm-admin
+        image: docker.skidata.net/ssp-vsm-admin
         mem_limit: 1024m
         ports:
             - 20000:20000
@@ -160,7 +160,7 @@ services:
             VIRTUAL_HOST: "*/admin, */admin/*"
     # Order container
     ssp-order:
-        image: swblr.skidata.net/ssp-order
+        image: docker.skidata.net/ssp-order
         mem_limit: 1024m
         ports:
             - 32010:32010
@@ -175,7 +175,7 @@ services:
             JAVA_OPTS: "-Xmx512m -Xss256k"
     #Payment container
     ssp-payment:
-        image: swblr.skidata.net/ssp-payment
+        image: docker.skidata.net/ssp-payment
         mem_limit: 1024m
         ports:
             - 32020:32020
