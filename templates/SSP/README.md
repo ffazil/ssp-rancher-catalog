@@ -1,3 +1,3 @@
-# SSP Production
+# SSP Catalog
 
-This stack deploys production server cluster of SSP. Select the appropriate template version - based on your scalability preferences. 
+This stack deploys server cluster of SSP. Select the appropriate template version - based on your scalability preferences. 

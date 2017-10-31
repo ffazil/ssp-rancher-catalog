@@ -1,5 +1,0 @@
-name: SSP Production
-description: |
-  Microservices cluster for SSP production environment.
-version: sspprod-0.1
-category: Enterprise Portal
