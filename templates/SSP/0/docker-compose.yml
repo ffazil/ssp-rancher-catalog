@@ -3,7 +3,7 @@ volumes:
   db_data: {}
 services:
   ssp-vault:
-    image: swblr.skidata.net/ssp-vault:0.6.2-SNAPSHOT
+    image: swblr.skidata.net/ssp-vault:0.6.3-SNAPSHOT
     environment:
       SPRING_PROFILES_ACTIVE: docker
     links:
@@ -14,7 +14,7 @@ services:
     expose:
     - '30010'
   ssp-portal:
-    image: swblr.skidata.net/ssp-portal:0.6.10-SNAPSHOT
+    image: swblr.skidata.net/ssp-portal:0.6.2-SNAPSHOT
     environment:
       SPRING_PROFILES_ACTIVE: docker
       SSP_HOSTNAME: "$SSP_HOSTNAME"
