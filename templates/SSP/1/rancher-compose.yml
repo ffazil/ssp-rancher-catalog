@@ -1,8 +1,8 @@
 .catalog:
   name: "Sales Platform Development"
-  version: "SSPDEV-TEMPLATE-1.0"
+  version: "SSPDEV-TEMPLATE-2.0"
   description: "Platform Development Cluster"
-  uuid: sspdev-template-1
+  uuid: sspdev-template-2
   minimum_rancher_version: v0.46.0
   questions:
 
@@ -93,5 +93,8 @@ services:
     scale: 1
     start_on_create: true
   ssp-auth:
+    scale: 1
+    start_on_create: true
+  ssp-catalog:
     scale: 1
     start_on_create: true
