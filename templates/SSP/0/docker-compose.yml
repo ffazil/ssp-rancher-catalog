@@ -159,15 +159,3 @@ services:
     - ssp-discovery:ssp-discovery
     expose:
     - '9999'
-  ssp-catalog:
-    image: swblr.skidata.net/ssp-catalog:0.0.1-SNAPSHOT
-    ports:
-      - '31030'
-    links:
-      - ssp-discovery:ssp-discovery
-      - ssp-rabbitmq:ssp-rabbitmq
-      - ssp-auth:ssp-auth
-    environment:
-      SPRING_PROFILES_ACTIVE: docker
-    expose:
-    - '31030'
