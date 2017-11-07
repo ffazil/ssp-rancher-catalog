@@ -95,3 +95,6 @@ services:
   ssp-auth:
     scale: 1
     start_on_create: true
+  ssp-catalog:
+    scale: 1
+    start_on_create: true
